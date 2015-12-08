@@ -1,3 +1,4 @@
+set -o vi
 randpw(){ < /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-20};echo;}
 function proml ()
 {
