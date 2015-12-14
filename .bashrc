@@ -1,5 +1,6 @@
 set -o vi
 randpw(){ < /dev/urandom tr -dc A-Za-z0-9 | head -c${1:-20};echo;}
+super_randpw(){ </dev/urandom tr -dc '1234567890!@#$%^&*()[]|{}\;:<>,./qwertyuiopQWERTYUIOPasdfghjklASDFGHJKLzxcvbnmZXCVBNM' | head -c20; echo "";}
 function proml ()
 {
 case $TERM in
