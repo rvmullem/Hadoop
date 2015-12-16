@@ -1,7 +1,7 @@
 usage ()
  {
  echo 'Usage : ./change_user_password.ksh <User> <Password>'
- echo '  e.g.: ./change_user_password.ksh bhr_mulle605 zomaarwat'
+ echo '  e.g.: ./change_user_password.ksh janssen zomaarwat'
  exit
  }
 
