@@ -1,1 +1,16 @@
-ldapsearch -x -y .test -W -D "cn=Manager,dc=hadoop,dc=$1,dc=$2,dc=local" -b "dc=hadoop,dc=$1,dc=$2,dc=local" "(objectclass=*)"
+usage ()
+ {
+ echo 'Usage : ./show_all_users.ksh'
+ echo '  e.g.: ./show_all_users.ksh'
+ exit
+ }
+
+if [ "$#" -ne 0 ]
+then
+  usage
+fi
+
+olcSuffix=`grep olcSuffix /etc/openldap/slapd.d/cn=config/olcDatabase={2}bdb.ldif|awk -F: '{print $2}'`
+olcRootDN=`grep olcRootDN /etc/openldap/slapd.d/cn=config/olcDatabase={2}bdb.ldif|awk -F: '{print $2}'`
+
+ldapsearch -x -y .test -W -D "$olcRootDN" -b "$olcSuffix" "(objectclass=*)"
