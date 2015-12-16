@@ -21,4 +21,3 @@ add: member
 member: uid=$1,ou=people,$olcSuffix
 
 EOL
-[root@c99p0
