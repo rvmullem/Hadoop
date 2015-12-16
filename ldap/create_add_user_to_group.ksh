@@ -1,7 +1,7 @@
 usage ()
  {
  echo 'Usage : ./create_add_user_to_group.ksh <User>'
- echo '  e.g.: ./create_add_user_to_group.ksh bhr_mulle605'
+ echo '  e.g.: ./create_add_user_to_group.ksh janssen'
  exit
  }
 
