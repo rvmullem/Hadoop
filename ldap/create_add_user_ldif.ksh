@@ -1,7 +1,7 @@
 usage ()
  {
  echo 'Usage : ./create_add_user_ldif.ksh <User> <Password>'
- echo '  e.g.: ./create_add_user_ldif.ksh bhr_mulle605 zomaarwat'
+ echo '  e.g.: ./create_add_user_ldif.ksh janssen zomaarwat'
  exit
  }
 
