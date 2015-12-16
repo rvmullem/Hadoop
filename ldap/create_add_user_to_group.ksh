@@ -1,8 +1,24 @@
+usage ()
+ {
+ echo 'Usage : ./create_add_user_to_group.ksh <User>'
+ echo '  e.g.: ./create_add_user_to_group.ksh bhr_mulle605'
+ exit
+ }
+
+if [ "$#" -ne 2 ]
+then
+  usage
+fi
+
+olcSuffix=`grep olcSuffix /etc/openldap/slapd.d/cn=config/olcDatabase={2}bdb.ldif|awk -F: '{print $2}'`
+olcRootDN=`grep olcRootDN /etc/openldap/slapd.d/cn=config/olcDatabase={2}bdb.ldif|awk -F: '{print $2}'`
+
 cat >add_user_$1_to_group.ldif <<EOL
 # entry for user for analyst group
-dn: cn=analyst,ou=groups,dc=hadoop,dc=$2,dc=$3,dc=local
+dn: cn=analyst,ou=groups,$olcSuffix
 changetype: modify
 add: member
-member: uid=$1,ou=people,dc=hadoop,dc=$2,dc=$3,dc=local
+member: uid=$1,ou=people,$olcSuffix
 
 EOL
+[root@c99p0
