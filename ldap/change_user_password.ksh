@@ -13,5 +13,5 @@ fi
 olcSuffix=`grep olcSuffix /etc/openldap/slapd.d/cn=config/olcDatabase={2}bdb.ldif|awk -F: '{print $2}'`
 olcRootDN=`grep olcRootDN /etc/openldap/slapd.d/cn=config/olcDatabase={2}bdb.ldif|awk -F: '{print $2}'`
 
-/home/bhr_mulle605/create_modify_user_password.ksh $1 $2
-ldapmodify -x -y /home/bhr_mulle605/.test -W -D "$olcRootDN" -f /home/bhr_mulle605/modfy_user_$1_password.ldif
+./create_modify_user_password.ksh $1 $2
+ldapmodify -x -y .test -W -D "$olcRootDN" -f ./modfy_user_$1_password.ldif
