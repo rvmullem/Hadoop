@@ -27,5 +27,4 @@ PS4='+ '
 
 proml
 
-
-proml
+export MYSQL_PS1="\u@`hostname` [\d] \R:\m:\s> "
